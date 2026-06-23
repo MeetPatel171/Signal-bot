@@ -33,3 +33,7 @@ target-version = "py311"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+# Avoid depending on uv's editable install — its .pth file is created with the
+# macOS UF_HIDDEN flag and silently skipped by site.py. pythonpath = ["src"]
+# makes the package importable from the source tree directly.
+pythonpath = ["src"]

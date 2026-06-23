@@ -1,7 +1,10 @@
 .PHONY: run test setup-browser send-test-notification inspect lint clean
 
+# PYTHONPATH=src is a workaround for a uv editable-install quirk on macOS:
+# uv writes the editable .pth file with UF_HIDDEN set, and Python's site.py
+# silently skips hidden files. Pointing at src/ directly avoids the dance.
 run:
-	uv run python -m signal_bot
+	PYTHONPATH=src uv run python -m signal_bot
 
 test:
 	uv run pytest -v
