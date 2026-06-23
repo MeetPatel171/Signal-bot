@@ -1,0 +1,11 @@
+# Whitelisted traders. Only signals from listed authors are considered.
+# Fill in before Phase 1. See plan §10 open question #2.
+#
+# Format:
+# traders:
+#   - username: thestockguy
+#     weight: 1.0          # multiplier on size_hint
+#   - username: chartgirl
+#     weight: 0.7
+
+traders: []

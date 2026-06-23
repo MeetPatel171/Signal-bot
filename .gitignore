@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Project runtime data (browser profile, sqlite db, attachments cache, logs)
+data/
+logs/
+
+# Secrets
+.env
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

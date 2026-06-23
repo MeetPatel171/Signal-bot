@@ -1,0 +1,70 @@
+# Entry + position-management rules. Defaults from plan §4.3.
+# Tune before Phase 1 starts (see plan §10 open questions).
+
+entries:
+  risk:
+    max_position_dollars: 500
+    max_position_pct_account: 5
+    max_concurrent_positions: 3
+    max_daily_trades: 5
+    max_daily_loss_dollars: 200
+    cooldown_seconds_after_trade: 60
+
+  universe:
+    allowed_tickers: null
+    blocked_tickers: ["DJT", "GME"]
+    min_price: 5.00
+    max_price: 1000.00
+    require_listed_exchange: true
+
+  signal:
+    min_confidence: medium
+    reject_hypotheticals: true
+    reject_corrections: false
+
+  time_windows:
+    trading_only: true
+    blackout_minutes_around_open: 5
+    blackout_minutes_around_close: 15
+    timezone: America/New_York
+
+  execution:
+    default_order_type: limit
+    limit_offset_pct: 0.2
+    default_size_dollars: 100
+    size_hint_multipliers:
+      starter: 0.5
+      small: 0.7
+      normal: 1.0
+      full: 1.5
+    auto_place_stop: true
+    default_stop_pct: 2.0
+
+position_management:
+  manual_updates:
+    require_hitl: true
+    min_confidence: medium
+    reject_ambiguous: true
+
+  auto_rules:
+    breakeven_move:
+      enabled: true
+      trigger_gain_pct: 1.0
+      require_hitl: false
+    trailing_stop:
+      enabled: true
+      activate_gain_pct: 2.0
+      trail_distance_pct: 1.5
+      require_hitl: false
+    eod_flatten:
+      enabled: true
+      time: "15:55"
+      action: market_close
+      require_hitl: true
+    time_stop:
+      enabled: false
+      max_hold_minutes: 240
+
+  scaling:
+    max_adds_per_position: 2
+    max_total_size_multiplier: 2.0

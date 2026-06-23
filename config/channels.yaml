@@ -1,0 +1,11 @@
+# Discord channels to monitor.
+# Fill in before Phase 1. See plan §10 open question #1.
+#
+# Format:
+# channels:
+#   - name: morning-call
+#     url: https://discord.com/channels/<guild_id>/<channel_id>
+#   - name: alerts
+#     url: https://discord.com/channels/<guild_id>/<channel_id>
+
+channels: []
